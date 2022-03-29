@@ -1,6 +1,7 @@
 import "./header.css";
 
-const Header = () => {
+const Header = ({openClickAside}) => {
+ 
   return (
     <header>
       <div className="header_left">
@@ -11,8 +12,8 @@ const Header = () => {
         </div>
       </div>
       <ul className=" header_right">
-        <li>
-          <img className="header_logo" src="/img/cart.svg" alt="img"></img>
+        <li onClick={openClickAside}>
+          <img  className="header_logo" src="/img/cart.svg" alt="img" ></img>
           <span>1300 руб</span>
         </li>
         <li>

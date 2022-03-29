@@ -1,15 +1,15 @@
 import "./aside.css";
 
-const Aside = () => {
+const Aside = ({onClose}) => {
   return (
     <div className="aside_panel">
       <div className="basket">
         <h3 className="basket_title">
           Корзина
-          <img
+          <img onClick={onClose}
             className="basket_item__button"
             src="/img/btn-remove.svg"
-            alt="remove"
+            alt="close"
           ></img>
         </h3>
 

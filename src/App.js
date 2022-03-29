@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import Aside from "./Components/Aside";
 import Body from "./Components/Body";
@@ -23,10 +24,12 @@ const arr = [
 ];
 
 function App() {
+  const [aside, setAside]= useState(false)
+
   return (
     <div className="wrapper">
-      <Aside />
-      <Header />
+      {aside && <Aside onClose={()=> setAside(false)}/>}
+      <Header  openClickAside={() => setAside(true) }/>
       <div className="body_shop_wrapper">
         <Body />
         <div className="shoes">
