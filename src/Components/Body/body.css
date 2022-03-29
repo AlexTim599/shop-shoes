@@ -1,0 +1,25 @@
+.body_shop_wrapper {
+  margin-left: 15px;
+  padding-bottom: 30px;
+}
+.body_shop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.body_search__block {
+  display: flex;
+  margin-right: 15px;
+}
+
+.body_searh__img {
+  margin-right: 5px;
+}
+
+.body_searh__input {
+  border: 1px solid #bbb4ff;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  width: 200px;
+}
