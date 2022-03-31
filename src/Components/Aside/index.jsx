@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux";
 import "./aside.css";
 
 const Aside = ({onClose}) => {
+
+  const aside = useSelector((state)=> state.arrShoes.cardAside)
+  
   return (
     <div className="aside_panel">
       <div className="basket">
@@ -14,7 +18,7 @@ const Aside = ({onClose}) => {
         </h3>
 
         <div className="basket_item">
-          <img width={70} height={70} src="/img/shoes/1.jpg" alt="img"></img>
+          {aside.map((i)=> <>  <img width={70} height={70} src="/img/shoes/1.jpg" alt="img"></img>
           <div className="basket_item__title">
             <span>Кроссовки adidas CORERACER </span>
             <b>11 290 руб.</b>
@@ -23,10 +27,23 @@ const Aside = ({onClose}) => {
             className="basket_item__button"
             src="/img/btn-remove.svg"
             alt="remove"
-          ></img>
+          ></img></> )}
+
+
+                  {/* <img width={70} height={70} src="/img/shoes/1.jpg" alt="img"></img>
+          <div className="basket_item__title">
+            <span>Кроссовки adidas CORERACER </span>
+            <b>11 290 руб.</b>
+          </div>
+          <img
+            className="basket_item__button"
+            src="/img/btn-remove.svg"
+            alt="remove"
+          ></img> */}
+          
         </div>
 
-        <div className="basket_item">
+        {/* <div className="basket_item">
           <img width={70} height={70} src="/img/shoes/2.jpg" alt="img"></img>
           <div className="basket_item__title">
             <span>Кроссовки adidas CORERACER </span>
@@ -49,7 +66,7 @@ const Aside = ({onClose}) => {
             src="/img/btn-remove.svg"
             alt="remove"
           ></img>
-        </div>
+        </div> */}
 
         <div className="price_wrapper">
           <div>
