@@ -1,7 +1,10 @@
 import "./header.css";
+import { useDispatch } from "react-redux";
+import { openAside } from "../../features/shoes/shoesSlice";
 
-const Header = ({openClickAside}) => {
- 
+const Header = () => {
+  const dispatch = useDispatch();
+
   return (
     <header>
       <div className="header_left">
@@ -12,8 +15,8 @@ const Header = ({openClickAside}) => {
         </div>
       </div>
       <ul className=" header_right">
-        <li onClick={openClickAside}>
-          <img  className="header_logo" src="/img/cart.svg" alt="img" ></img>
+        <li onClick={() => dispatch(openAside())}>
+          <img className="header_logo" src="/img/cart.svg" alt="img"></img>
           <span>1300 руб</span>
         </li>
         <li>

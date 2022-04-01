@@ -1,75 +1,79 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    shoes: [
-        {
-            title: "Кроссовки Air Max Dawn",
-            price: 12999,
-            image: "./img/shoes/1.jpg",
-        },
-        {
-            title: "Кроссовки Air Max Dawn",
-            price: 12999,
-            image: "./img/shoes/2.jpg",
-        },
-        {
-            title: "Кроссовки Air Max Dawn",
-            price: 12999,
-            image: "./img/shoes/4.jpg",
-        },
-        {
-            title: "Кроссовки Air Max Dawn",
-            price: 12999,
-            image: "./img/shoes/5.jpg",
-        },
-        {
-            title: "Кроссовки Air Max Dawn",
-            price: 12999,
-            image: "./img/shoes/6.jpg",
-        },
-        {
-            title: "Кроссовки Air Max Dawn",
-            price: 12999,
-            image: "./img/shoes/7.jpg",
-        },
-        {
-            title: "Кроссовки Air Max Dawn",
-            price: 12999,
-            image: "./img/shoes/8.jpg",
-        },
-
-    ],
-    cardAside: [],
-    clickPlus: false
-
-
-}
+  shoes: [
+    {
+      title: "Кроссовки Air Max Dawn",
+      price: 12999,
+      image: "./img/shoes/1.jpg",
+    },
+    {
+      title: "Кроссовки Air Max Dawn",
+      price: 12999,
+      image: "./img/shoes/2.jpg",
+    },
+    {
+      title: "Кроссовки Air Max Dawn",
+      price: 12999,
+      image: "./img/shoes/4.jpg",
+    },
+    {
+      title: "Кроссовки Air Max Dawn",
+      price: 12999,
+      image: "./img/shoes/5.jpg",
+    },
+    {
+      title: "Кроссовки Air Max Dawn",
+      price: 12999,
+      image: "./img/shoes/6.jpg",
+    },
+    {
+      title: "Кроссовки Air Max Dawn",
+      price: 12999,
+      image: "./img/shoes/7.jpg",
+    },
+    {
+      title: "Кроссовки Air Max Dawn",
+      price: 12999,
+      image: "./img/shoes/8.jpg",
+    },
+  ],
+  cardAside: [],
+  clickPlus: false,
+  aside: false,
+};
 
 const shoesSlice = createSlice({
-    name: 'arrShoes',
-    initialState,
-    reducers: {
-        setShoes: (state, action) => {
-            return {
-                ...state,
-                shoes: action.payload
-            }
+  name: "arrShoes",
+  initialState,
+  reducers: {
+    setShoes: (state, action) => {
+      return {
+        ...state,
+        shoes: action.payload,
+      };
+    },
+    addAside: (state, action) => {
+      return {
+        ...state,
+        cardAside: action.payload,
+      };
+    },
+    openAside: (state, action) => {
+      return {
+        ...state,
+        aside: true,
+      };
+    },
+    closeAside: (state) => {
+      console.log("click Close");
+      return {
+        ...state,
+        aside: false,
+      };
+    },
+  },
+});
 
-        },
-        addAside: (state, action) => {
-            return {
-                ...state,
-                cardAside: action.payload
-            }
-
-        }
-    }
-
-
-})
-
-
-
-
-export const { setShoes, addAside } = shoesSlice.actions;
-export default shoesSlice.reducer
+export const { setShoes, addAside, openAside, closeAside } = shoesSlice.actions;
+export default shoesSlice.reducer;
