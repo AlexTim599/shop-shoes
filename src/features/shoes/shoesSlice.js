@@ -39,8 +39,10 @@ const initialState = {
         },
 
     ],
+
     cardAside: [],
-    clickPlus: false
+    clickPlus: false,
+    asidePanel: false
 
 
 }
