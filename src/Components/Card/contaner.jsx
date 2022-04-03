@@ -1,19 +1,44 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Card from ".";
+import { addAside } from "../../features/shoes/shoesSlice";
+
 
 const CardContainer = () => {
-  const shoes = useSelector((state) => state.arrShoes.shoes);
-  return shoes.map((i, index) => (
+  const shoes = useSelector((state) => state.arrShoes);
+  console.log(shoes.searchResult);
+  const dispatch = useDispatch()
+
+   return shoes.searchResult.length > 0 ? shoes.searchResult.map((shoes) => (
+     
     <Card
-      title={i.title}
-      price={i.price}
-      image={i.image}
-      key={index}
-      onClickFavorite={() => console.log("fdd favotire")}
-      onclickPlus={() => console.log("нажали плюс")}
+      title={shoes.title}
+      price={shoes.price}
+      image={shoes.image}
+      id ={shoes.id}
+      key={shoes.id}
+      onClickFavorite={() => console.log("add favotire")}
+      onclickPlus={(obj) => dispatch(addAside(obj))}
     />
-  ));
+   )) : shoes.shoes.map((shoes) => (
+     <Card
+       title={shoes.title}
+       price={shoes.price}
+       image={shoes.image}
+       id={shoes.id}
+       key={shoes.id}
+       onClickFavorite={() => console.log("add favotire")}
+       onclickPlus={(obj) => dispatch(addAside(obj))}
+     />
+   ));
 };
 
 export default CardContainer;
+
+<div>
+  <span>
+    <ul>
+      <li></li>
+    </ul>
+  </span>
+</div>

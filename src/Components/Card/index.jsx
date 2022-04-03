@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./card.css";
+import { addAside } from "../../features/shoes/shoesSlice";
 
-
-const Card = ({ title, price, image, onClickFavorite, onclickPlus }) => {
+const Card = ({ title, price, image, onClickFavorite, onclickPlus, id}) => {
+  // const dispatch = useDispatch()
 
   const [isAdded, setAdded] = useState(false);
   
   const handleClick = () => {
+    onclickPlus({title, price, image, id});
     setAdded(!isAdded);
   };
 

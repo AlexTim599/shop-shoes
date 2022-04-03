@@ -1,11 +1,14 @@
 import { useSelector, useDispatch } from "react-redux";
-import { closeAside } from "../../features/shoes/shoesSlice";
+import { closeAside, removeShoes } from "../../features/shoes/shoesSlice";
+
 
 import "./aside.css";
 
 const Aside = () => {
   const asideIsOpen = useSelector((state) => state.arrShoes);
   const aside = useSelector((state) => state.arrShoes.cardAside);
+  console.log(aside);
+
   const dispatch = useDispatch();
 
   return asideIsOpen.aside ? (
@@ -22,52 +25,30 @@ const Aside = () => {
         </h3>
 
         <div className="basket_item">
-          {aside.map((i) => (
-            <>
+          {aside.map((i) => {
+            console.log('корзина', i);
+            return (
+            <div className="basket_item-_wrapper"key={i.id} >
               <img
                 width={70}
                 height={70}
-                src="/img/shoes/1.jpg"
+                src={i.image}
                 alt="img"
               ></img>
               <div className="basket_item__title">
-                <span>Кроссовки adidas CORERACER </span>
-                <b>11 290 руб.</b>
+                <span >{i.title} </span>
+                <b >{i.price} руб.</b>
               </div>
-              <img
+              <img onClick={()=>dispatch(removeShoes(i.id))}
                 className="basket_item__button"
-                src="/img/btn-remove.svg"
+                src ="/img/btn-remove.svg "
                 alt="remove"
               ></img>
-            </>
-          ))}
+            </div>
+            )
+})}
         </div>
-
-        {/* <div className="basket_item">
-          <img width={70} height={70} src="/img/shoes/2.jpg" alt="img"></img>
-          <div className="basket_item__title">
-            <span>Кроссовки adidas CORERACER </span>
-            <b>11 290 руб.</b>
-          </div>
-          <img
-            className="basket_item__button"
-            src="/img/btn-remove.svg"
-            alt="remove"
-          ></img>
-        </div>
-        <div className="basket_item">
-          <img width={70} height={70} src="/img/shoes/2.jpg" alt="img"></img>
-          <div className="basket_item__title">
-            <span>Кроссовки adidas CORERACER </span>
-            <b>11 290 руб.</b>
-          </div>
-          <img
-            className="basket_item__button"
-            src="/img/btn-remove.svg"
-            alt="remove"
-          ></img>
-        </div> */}
-
+     
         <div className="price_wrapper">
           <div>
             <span>Цена:</span>
