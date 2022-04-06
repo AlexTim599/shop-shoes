@@ -1,7 +1,7 @@
 import "./header.css";
-import {useDispatch} from "react-redux";
-import {openAside} from "../../features/shoes/shoesSlice";
-import {Routes, Route, Link} from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { openAside } from "../../features/shoes/shoesSlice";
+import { Routes, Route, Link } from "react-router-dom";
 import Favorits from "../Favorits";
 
 const Header = () => {
@@ -33,6 +33,11 @@ const Header = () => {
           <img className="header_logo" src="/img/user.svg" alt="img"></img>
         </li>
       </ul>
+      <Routes>
+        <Route>
+
+        </Route>
+      </Routes>
     </header>
   );
 };

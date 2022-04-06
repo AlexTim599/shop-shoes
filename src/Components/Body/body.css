@@ -1,12 +1,14 @@
 .body_shop_wrapper {
-  margin-left: 15px;
+  margin: 0 15px;
   padding-bottom: 30px;
 }
+
 .body_shop {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .body_search__block {
   display: flex;
   margin-right: 15px;

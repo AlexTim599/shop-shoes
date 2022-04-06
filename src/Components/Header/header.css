@@ -10,6 +10,7 @@
   list-style: none;
   margin-right: 10px;
 }
+
 .header_logo,
 span {
   margin-right: 10px;
@@ -28,6 +29,7 @@ header {
   justify-content: space-between;
   height: 75px;
 }
+
 .header_left {
   display: flex;
   margin-top: 15px;
@@ -46,6 +48,7 @@ li {
   margin-right: 15px;
   cursor: pointer;
 }
+
 .link {
   text-decoration: none;
 }
