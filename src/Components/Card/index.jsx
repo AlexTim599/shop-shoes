@@ -1,21 +1,27 @@
-import { useState } from "react";
+import {useState} from "react";
 import "./card.css";
-import { addAside } from "../../features/shoes/shoesSlice";
 
-const Card = ({ title, price, image, onClickFavorite, onclickPlus, id}) => {
-  // const dispatch = useDispatch()
-
+const Card = ({title, price, image, onclickPlus, onClickFavorits, id}) => {
   const [isAdded, setAdded] = useState(false);
-  
+  const [isFavorit, setIsFavorit] = useState(false);
+
   const handleClick = () => {
     onclickPlus({title, price, image, id});
     setAdded(!isAdded);
   };
 
+  const favoritHandleClick = () => {
+    onClickFavorits({title, price, image, id});
+    setIsFavorit(!isFavorit);
+  };
+
   return (
     <div className="card">
-      <div className="card_unliked" onClick={onClickFavorite}>
-        <img src="/img/unliked.svg" alt="unliked"></img>
+      <div className="card_unliked" onClick={favoritHandleClick}>
+        <img
+          src={isFavorit ? "/img/liked.svg" : "/img/unliked.svg"}
+          alt="unliked"
+        ></img>
       </div>
 
       <img className="card_img" src={image} alt="img"></img>

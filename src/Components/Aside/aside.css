@@ -10,7 +10,7 @@
 
 .basket {
   position: absolute;
-  min-width: 390px;
+  min-width: 330px;
   background-color: rgb(255, 255, 255);
   right: 0;
   height: 100%;
@@ -28,8 +28,6 @@
   font-size: 16px;
   cursor: pointer;
   transition: backgraund (0.2 ease-in-out);
-  position: absolute;
-  left: 40px;
 }
 
 .btn_blue:hover {
@@ -47,12 +45,11 @@
   justify-content: space-between;
 }
 
-.basket_item-_wrapper{
+.basket_item-_wrapper {
   display: flex;
   flex-direction: inherit;
   align-items: center;
   justify-content: space-evenly;
-
 }
 
 .basket_item__title {
@@ -70,6 +67,31 @@
 
 .basket_item__button:hover {
   opacity: 1;
+}
+
+.bascet_item__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 200px;
+  font-size: 14px;
+  padding: 50px;
+}
+
+.bascet_item_empty__img {
+  width: 60px;
+}
+
+.bascet_item_empty__btn {
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(170, 193, 240);
+  border: 0;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .price_wrapper {
