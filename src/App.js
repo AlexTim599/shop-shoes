@@ -1,5 +1,6 @@
 // import axios from "axios";
 import React from "react";
+import { Outlet } from "react-router-dom";
 import "./App.css";
 import Aside from "./Components/Aside";
 import Body from "./Components/Body";
@@ -20,7 +21,7 @@ function App() {
           </div>
         </div>
         <div>
-          <FavoritsContainer />
+          <Outlet />
         </div>
       </div>
     </>

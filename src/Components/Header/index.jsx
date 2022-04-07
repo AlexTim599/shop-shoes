@@ -1,6 +1,7 @@
 import "./header.css";
-import {useDispatch} from "react-redux";
-import {openAside, openFavorits} from "../../features/shoes/shoesSlice";
+import { useDispatch } from "react-redux";
+import { openAside, openFavorits } from "../../features/shoes/shoesSlice";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -21,9 +22,11 @@ const Header = () => {
             <img className="header_logo" src="/img/cart.svg" alt="img"></img>
             <span>1300 руб</span>
           </li>
-          <li onClick={() => dispatch(openFavorits())}>
-            <img className="liked_logo" src="/img/heart.svg" alt="liked"></img>
-          </li>
+          <Link to='/favorits'>
+            <li onClick={() => dispatch(openFavorits())}>
+              <img className="liked_logo" src="/img/heart.svg" alt="liked"></img>
+            </li>
+          </Link>
           <li>
             <img className="header_logo" src="/img/user.svg" alt="user"></img>
           </li>
