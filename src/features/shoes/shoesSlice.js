@@ -37,6 +37,7 @@ const initialState = {
   searchValue: "",
   clickPlus: false,
   asidePanel: false,
+  favoritsIsOpen: false,
 };
 
 const shoesSlice = createSlice({
@@ -91,6 +92,13 @@ const shoesSlice = createSlice({
         state.favorits.push(action.payload);
       }
     },
+
+    openFavorits: (state) => {
+      return {
+        ...state,
+        favoritsIsOpen: true,
+      };
+    },
   },
 });
 
@@ -102,5 +110,6 @@ export const {
   removeShoes,
   searhSoes,
   addFavorits,
+  openFavorits,
 } = shoesSlice.actions;
 export default shoesSlice.reducer;
