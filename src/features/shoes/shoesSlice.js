@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   shoes: [
@@ -14,15 +14,15 @@ const initialState = {
       price: 2341,
       image: "./img/shoes/2.jpg",
     },
-    {id: 3, title: "Кроссовки  Dawn", price: 6543, image: "./img/shoes/4.jpg"},
-    {id: 4, title: "Кроссовки Nike", price: 3434, image: "./img/shoes/5.jpg"},
+    { id: 3, title: "Кроссовки  Dawn", price: 6543, image: "./img/shoes/4.jpg" },
+    { id: 4, title: "Кроссовки Nike", price: 3434, image: "./img/shoes/5.jpg" },
     {
       id: 5,
       title: "Кроссовки Nike Air",
       price: 77777,
       image: "./img/shoes/6.jpg",
     },
-    {id: 6, title: "Кроссовки Adidas", price: 6666, image: "./img/shoes/7.jpg"},
+    { id: 6, title: "Кроссовки Adidas", price: 6666, image: "./img/shoes/7.jpg" },
     {
       id: 7,
       title: "Кроссовки Air Max Dawn",
@@ -43,7 +43,9 @@ const initialState = {
 const shoesSlice = createSlice({
   name: "arrShoes",
   initialState,
+
   reducers: {
+
     setShoes: (state, action) => {
       return {
         ...state,
@@ -60,14 +62,14 @@ const shoesSlice = createSlice({
     openAside: (state) => {
       return {
         ...state,
-        aside: true,
+        asidePanel: true,
       };
     },
 
     closeAside: (state) => {
       return {
         ...state,
-        aside: false,
+        asidePanel: false,
       };
     },
 

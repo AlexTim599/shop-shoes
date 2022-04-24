@@ -1,5 +1,5 @@
-import {useSelector, useDispatch} from "react-redux";
-import {closeAside, removeShoes} from "../../features/shoes/shoesSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { closeAside, removeShoes } from "../../features/shoes/shoesSlice";
 
 import "./aside.css";
 
@@ -9,7 +9,7 @@ const Aside = () => {
 
   const dispatch = useDispatch();
 
-  return asideIsOpen.aside ? (
+  return asideIsOpen.asidePanel ? (
     <div className="aside_panel">
       <div className="basket">
         <h3 className="basket_title">

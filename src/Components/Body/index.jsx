@@ -1,10 +1,11 @@
-import {useDispatch, useSelector} from "react-redux";
-import {searhSoes} from "../../features/shoes/shoesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { searhSoes } from "../../features/shoes/shoesSlice";
 
 import "./body.css";
 
 const Body = () => {
-  const {shoes, searchValue} = useSelector((state) => state.arrShoes);
+  const { shoes, searchValue } = useSelector((state) => state.arrShoes);
   const dispatch = useDispatch();
 
   const title =
@@ -14,10 +15,11 @@ const Body = () => {
     const filtredShoes = shoes.filter((i) =>
       i.title.toLowerCase().includes(e.target.value.toLowerCase())
     );
-    dispatch(searhSoes({filtredShoes, searchValue: e.target.value}));
+    dispatch(searhSoes({ filtredShoes, searchValue: e.target.value }));
   };
 
   return (
+
     <div className="body_shop">
       <h2 className=" body_title"> {title}</h2>
       <div className="body_search__block">
@@ -33,6 +35,7 @@ const Body = () => {
         ></input>
       </div>
     </div>
+
   );
 };
 

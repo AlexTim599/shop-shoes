@@ -42,6 +42,7 @@ const Card = ({ title, price, image, onclickPlus, onClickFavorits, id }) => {
           ></img>
         </button>
       </div>
+
     </div>
 
   );

@@ -5,23 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import FavoritsContainer from "./Components/Favorits/container";
+import { BrowserRouter } from "react-router-dom";
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} >
-            <Route path="/favorits" element={<FavoritsContainer />} >
-
-            </Route>
-          </Route>
-
-
-        </Routes>
-
+        <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

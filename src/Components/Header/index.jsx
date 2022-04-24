@@ -9,14 +9,15 @@ const Header = () => {
   return (
     <>
       <header>
-        <div className="header_left">
-          <img className="logo" src="/img/logo.png " alt="img"></img>
-          <div className=" header_info">
-            <h3> Shop house</h3>
-            <p>Магазин кросовок</p>
+        <Link to='/'>
+          <div className="header_left">
+            <img className="logo" src="/img/logo.png " alt="img"></img>
+            <div className=" header_info">
+              <h3> Shop house</h3>
+              <p>Магазин кросовок</p>
+            </div>
           </div>
-        </div>
-
+        </Link>
         <ul className="header_right">
           <li onClick={() => dispatch(openAside())}>
             <img className="header_logo" src="/img/cart.svg" alt="img"></img>
@@ -32,7 +33,9 @@ const Header = () => {
           </li>
         </ul>
       </header>
+
     </>
+
   );
 };
 
