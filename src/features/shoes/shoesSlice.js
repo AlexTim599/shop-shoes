@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   shoes: [
@@ -14,15 +14,15 @@ const initialState = {
       price: 2341,
       image: "./img/shoes/2.jpg",
     },
-    {id: 3, title: "Кроссовки  Dawn", price: 6543, image: "./img/shoes/4.jpg"},
-    {id: 4, title: "Кроссовки Nike", price: 3434, image: "./img/shoes/5.jpg"},
+    { id: 3, title: "Кроссовки  Dawn", price: 6543, image: "./img/shoes/4.jpg" },
+    { id: 4, title: "Кроссовки Nike", price: 3434, image: "./img/shoes/5.jpg" },
     {
       id: 5,
       title: "Кроссовки Nike Air",
       price: 77777,
       image: "./img/shoes/6.jpg",
     },
-    {id: 6, title: "Кроссовки Adidas", price: 6666, image: "./img/shoes/7.jpg"},
+    { id: 6, title: "Кроссовки Adidas", price: 6666, image: "./img/shoes/7.jpg" },
     {
       id: 7,
       title: "Кроссовки Air Max Dawn",
@@ -73,7 +73,6 @@ const shoesSlice = createSlice({
     },
 
     removeShoes: (state, action) => {
-      console.log(action.payload);
       return {
         ...state,
         cardAside: [...state.cardAside.filter((i) => i.id !== action.payload)],

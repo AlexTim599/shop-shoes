@@ -7,6 +7,8 @@ const Aside = () => {
   const asideIsOpen = useSelector((state) => state.arrShoes);
   const aside = useSelector((state) => state.arrShoes.cardAside);
 
+  const price = aside.reduce((sum, price) => price.price + sum, 0)
+
   const dispatch = useDispatch();
 
   return asideIsOpen.asidePanel ? (
@@ -49,8 +51,9 @@ const Aside = () => {
               </div>
               <div className="price_wrapper___dashed"></div>
               <div>
-                <span>12 456 руб.</span>
+                <span>{price} руб.</span>
               </div>
+
             </div>
             <button className="btn_blue">
               Оформить заказ <img src="/img/arrow.svg" alt="arrow"></img>

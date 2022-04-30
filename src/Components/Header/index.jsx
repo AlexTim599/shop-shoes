@@ -1,10 +1,13 @@
 import "./header.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openAside, openFavorits } from "../../features/shoes/shoesSlice";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const shoesPrice = useSelector((state) => state.arrShoes.cardAside)
   const dispatch = useDispatch();
+
+  const totalPrice = shoesPrice.reduce((sum, price) => price.price + sum, 0)
 
   return (
     <>
@@ -21,7 +24,7 @@ const Header = () => {
         <ul className="header_right">
           <li onClick={() => dispatch(openAside())}>
             <img className="header_logo" src="/img/cart.svg" alt="img"></img>
-            <span>1300 руб</span>
+            <span>{totalPrice} руб</span>
           </li>
           <Link to='/favorits'>
             <li onClick={() => dispatch(openFavorits())}>

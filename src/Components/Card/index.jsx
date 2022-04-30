@@ -1,13 +1,20 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { removeShoes } from "../../features/shoes/shoesSlice";
 import "./card.css";
 
-const Card = ({ title, price, image, onclickPlus, onClickFavorits, id }) => {
+const Card = ({ title, price, image, id, onclickPlus, onClickFavorits, removeDuble, }) => {
+  const dispatch = useDispatch()
   const [isAdded, setAdded] = useState(false);
   const [isFavorit, setIsFavorit] = useState(false);
 
   const handleClick = () => {
+
+    removeDuble()
+    // dispatch(removeShoes(id))
     onclickPlus({ title, price, image, id });
-    setAdded(!isAdded);
+    setAdded(!isAdded)
+
   };
 
   const favoritHandleClick = () => {
@@ -18,8 +25,7 @@ const Card = ({ title, price, image, onclickPlus, onClickFavorits, id }) => {
   return (
 
     <div className="card">
-
-      <div className="card_unliked" onClick={favoritHandleClick}>
+      <div className="card_unliked" onClick={favoritHandleClick} >
         <img
           src={isFavorit ? "/img/liked.svg" : "/img/unliked.svg"}
           alt="unliked"
@@ -36,14 +42,13 @@ const Card = ({ title, price, image, onclickPlus, onClickFavorits, id }) => {
           <b>{price}</b>
         </div>
         <button className="card_button" onClick={handleClick}>
-          <img className="card_button__img"
-            src={isAdded ? "./img/btn-checked.svg" : "/img/btn-plus.svg"}
+          <img className="card_button__img "
+            src={isAdded ? "./img/btn-checked.svg" : '/img/btn-plus.svg'}
             alt="img"
           ></img>
         </button>
       </div>
-
-    </div>
+    </div >
 
   );
 };
