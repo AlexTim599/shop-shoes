@@ -1,9 +1,13 @@
 import "./favorits.css";
 
-const Favorirs = ({title, price, image}) => {
+const Favorirs = ({title, price, image, id, favoritsRemove}) => {
+  const removeFavoritsShoes = () => {
+    favoritsRemove({id});
+  };
+
   return (
     <div className="favorits_card">
-      <div className="favorits_card_unliked">
+      <div className="favorits_card_unliked" onClick={removeFavoritsShoes}>
         <img src="/img/liked.svg" alt="unliked"></img>
       </div>
       <div className="favorits_card_img__wrapper">
