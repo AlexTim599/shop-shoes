@@ -1,7 +1,7 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Faforits from ".";
-import {removeFavoritsShoes} from "../../features/shoes/shoesSlice";
+import { removeFavoritsShoes } from "../../features/shoes/shoesSlice";
 
 const FavoritsContainer = () => {
   const shoes = useSelector((state) => state.arrShoes);
@@ -16,7 +16,7 @@ const FavoritsContainer = () => {
         image={shoes.image}
         id={shoes.id}
         key={shoes.id}
-        favoritsRemove={(obj) => dispatch(removeFavoritsShoes(shoes.id))}
+        favoritsRemove={() => dispatch(removeFavoritsShoes(shoes.id))}
       />
     ))
   ) : (

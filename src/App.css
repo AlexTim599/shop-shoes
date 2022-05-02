@@ -10,12 +10,12 @@
 }
 
 .shoes {
-  /* display: flex;
-
-  flex-wrap: wrap;
-  margin-left:85px; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
 
+}
+
+.favorits_container__title {
+  position: fixed;
 }

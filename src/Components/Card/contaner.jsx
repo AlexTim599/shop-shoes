@@ -1,13 +1,10 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from ".";
 import { addAside, addFavorits, removeShoes } from "../../features/shoes/shoesSlice";
 
 const CardContainer = () => {
   const shoes = useSelector((state) => state.arrShoes);
-  const removePrice = useSelector((state) => state.arrShoes.cardAside);
   const dispatch = useDispatch();
-
 
   return shoes.searchResult.length > 0
     ? shoes.searchResult.map((shoes) => (
@@ -20,6 +17,7 @@ const CardContainer = () => {
         onclickPlus={(obj) => dispatch(addAside(obj))}
         onClickFavorits={(obj) => dispatch(addFavorits(obj))}
 
+
       />
     ))
     : shoes.shoes.map((shoes) => (
@@ -31,7 +29,8 @@ const CardContainer = () => {
         key={shoes.id}
         onclickPlus={(obj) => dispatch(addAside(obj))}
         onClickFavorits={(obj) => dispatch(addFavorits(obj))}
-        removeDuble={() => dispatch(removeShoes(shoes.id))}
+        removeDouble={() => dispatch(removeShoes(shoes.id))}
+
 
       />
     ));

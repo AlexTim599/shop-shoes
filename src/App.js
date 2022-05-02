@@ -5,7 +5,7 @@ import Aside from "./Components/Aside";
 import Body from "./Components/Body";
 import CardContainer from "./Components/Card/contaner";
 import FavoritsContainer from "./Components/Favorits/container";
-import {Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./Pages";
 
 function App() {
@@ -29,6 +29,9 @@ function App() {
               path="favorits"
               element={
                 <div className="favorits_container">
+                  <div className="favorits_container__title">
+                    <h2> Избранное</h2>
+                  </div>
                   <FavoritsContainer />
                 </div>
               }
