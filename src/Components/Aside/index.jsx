@@ -53,7 +53,6 @@ const Aside = () => {
               <div>
                 <span>{price} руб.</span>
               </div>
-
             </div>
             <button className="btn_blue">
               Оформить заказ <img src="/img/arrow.svg" alt="arrow"></img>

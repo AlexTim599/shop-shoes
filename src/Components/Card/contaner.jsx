@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import Card from ".";
-import { addAside, addFavorits, removeShoes } from "../../features/shoes/shoesSlice";
+import { addAside, addFavorits, removeFavoritsShoes, removeShoes } from "../../features/shoes/shoesSlice";
 
 const CardContainer = () => {
   const shoes = useSelector((state) => state.arrShoes);
+  const shoppingСart = useSelector((store) => store.arrShoes.cardAside)
+  const favorits = useSelector((store) => store.arrShoes.favorits)
   const dispatch = useDispatch();
 
   return shoes.searchResult.length > 0
@@ -17,7 +19,6 @@ const CardContainer = () => {
         onclickPlus={(obj) => dispatch(addAside(obj))}
         onClickFavorits={(obj) => dispatch(addFavorits(obj))}
 
-
       />
     ))
     : shoes.shoes.map((shoes) => (
@@ -28,8 +29,12 @@ const CardContainer = () => {
         id={shoes.id}
         key={shoes.id}
         onclickPlus={(obj) => dispatch(addAside(obj))}
+        onclickMinus={() => dispatch(removeShoes(shoes.id))}
         onClickFavorits={(obj) => dispatch(addFavorits(obj))}
-        removeDouble={() => dispatch(removeShoes(shoes.id))}
+        shoppingСart={shoppingСart}
+        favorits={favorits}
+        favoritsRemove={() => dispatch(removeFavoritsShoes(shoes.id))}
+
 
 
       />

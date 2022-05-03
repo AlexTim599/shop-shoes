@@ -38,6 +38,7 @@ const initialState = {
   clickPlus: false,
   asidePanel: false,
   favoritsIsOpen: false,
+  ordersIsOpen: false,
 };
 
 const shoesSlice = createSlice({
@@ -105,6 +106,12 @@ const shoesSlice = createSlice({
         favorits: [...state.favorits.filter((i) => i.id !== action.payload)],
       };
     },
+    openOrders: (state) => {
+      return {
+        ...state,
+        ordersIsOpen: true,
+      };
+    },
   },
 });
 
@@ -118,5 +125,6 @@ export const {
   addFavorits,
   openFavorits,
   removeFavoritsShoes,
+  openOrders,
 } = shoesSlice.actions;
 export default shoesSlice.reducer;

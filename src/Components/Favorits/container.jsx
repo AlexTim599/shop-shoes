@@ -17,6 +17,8 @@ const FavoritsContainer = () => {
         id={shoes.id}
         key={shoes.id}
         favoritsRemove={() => dispatch(removeFavoritsShoes(shoes.id))}
+
+
       />
     ))
   ) : (

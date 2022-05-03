@@ -59,6 +59,7 @@
   font-size: 14px;
   width: 140px;
 }
+
 .basket_item__button {
   margin-left: 15px;
   cursor: pointer;
@@ -77,6 +78,7 @@
   height: 200px;
   font-size: 14px;
   padding: 50px;
+  padding-block-start: 200px;
 }
 
 .bascet_item_empty__img {

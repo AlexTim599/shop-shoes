@@ -1,6 +1,6 @@
 import "./header.css";
 import { useDispatch, useSelector } from "react-redux";
-import { openAside, openFavorits } from "../../features/shoes/shoesSlice";
+import { openAside, openFavorits, openOrders } from "../../features/shoes/shoesSlice";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -31,9 +31,11 @@ const Header = () => {
               <img className="liked_logo" src="/img/heart.svg" alt="liked"></img>
             </li>
           </Link>
-          <li>
-            <img className="header_logo" src="/img/user.svg" alt="user"></img>
-          </li>
+          <Link to='/orders'>
+            <li onClick={() => dispatch(openOrders())}>
+              <img className="header_logo" src="/img/user.svg" alt="user"></img>
+            </li>
+          </Link>
         </ul>
       </header>
 

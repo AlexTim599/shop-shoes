@@ -3,30 +3,43 @@ import ContentLoader from "react-content-loader"
 import { useSelector } from "react-redux";
 import "./card.css";
 
-const Card = ({ title, price, image, id, onclickPlus, onClickFavorits, removeDouble, }) => {
+const Card = ({ title, price, image, id, onclickPlus, onClickFavorits, onclickMinus, shoppingСart, favorits, favoritsRemove }) => {
   const [isAdded, setAdded] = useState(false);
   const [isFavorit, setIsFavorit] = useState(false);
   const [isLoading, setIsLoading] = useState(false)
 
-  // const added = useSelector((store) => store.arrShoes.cardAside)
-  // console.log(added);
-
-
-
   const handleClick = () => {
-    removeDouble()
-    onclickPlus({ title, price, image, id });
-    setAdded(!isAdded)
+    !isAdded && onclickPlus({ title, price, image, id });
+    isAdded && onclickMinus()
+
   };
 
   const favoritHandleClick = () => {
-    onClickFavorits({ title, price, image, id });
-    setIsFavorit(!isFavorit);
+    !isFavorit && onClickFavorits({ title, price, image, id });
+    isFavorit && favoritsRemove()
   };
 
   useEffect(() => {
     setTimeout(() => { setIsLoading(true) }, 1000)
   }, [])
+
+  useEffect(() => {
+    const cardItem = shoppingСart.filter((i) => i.id === id)
+    if (cardItem.length > 0) {
+      setAdded(true)
+    } else {
+      setAdded(false)
+    }
+  }, [shoppingСart])
+
+  useEffect(() => {
+    const favoritsItem = favorits.filter((item) => item.id === id)
+    if (favoritsItem.length > 0) {
+      setIsFavorit(true)
+    } else {
+      setIsFavorit(false)
+    }
+  }, [favorits])
 
   return isLoading ? (
 
