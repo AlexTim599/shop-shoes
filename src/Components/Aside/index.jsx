@@ -1,15 +1,28 @@
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { closeAside, removeShoes } from "../../features/shoes/shoesSlice";
+import { addOrders, closeAside, removeShoes } from "../../features/shoes/shoesSlice";
+import Info from "../Info";
 
 import "./aside.css";
 
 const Aside = () => {
   const asideIsOpen = useSelector((state) => state.arrShoes);
   const aside = useSelector((state) => state.arrShoes.cardAside);
+  const [isOrderCompited, setIsOrderCompited] = useState(false)
+  console.log(asideIsOpen.orders);
 
   const price = aside.reduce((sum, price) => price.price + sum, 0)
 
   const dispatch = useDispatch();
+
+  const payOrders = () => {
+    aside.map((i) => dispatch(removeShoes(i.id)))
+    function go() {
+      dispatch(addOrders(aside))
+    }
+    setIsOrderCompited(true)
+    go()
+  }
 
   return asideIsOpen.asidePanel ? (
     <div className="aside_panel">
@@ -54,28 +67,17 @@ const Aside = () => {
                 <span>{price} руб.</span>
               </div>
             </div>
-            <button className="btn_blue">
+            <button className="btn_blue" onClick={payOrders}>
               Оформить заказ <img src="/img/arrow.svg" alt="arrow"></img>
             </button>
           </div>
         ) : (
-          <div className="bascet_item__empty">
-            <img
-              className="bascet_item_empty__img"
-              src="/img/empty-cart.jpg"
-              alt="cart"
-            />
-            <span>Ваша корзина пуста</span>
-            <button
-              className="bascet_item_empty__btn"
-              onClick={() => dispatch(closeAside())}
-            >
-              Назад
-            </button>
-          </div>
+          <Info
+            title={isOrderCompited ? 'Ваш заказ оформлен и скоро будет у Вас!' : 'Ваша корзина пуста'}
+            img={isOrderCompited ? '/img/complete-order.jpg' : '/img/empty-cart.jpg'} />
         )}
       </div>
-    </div>
+    </div >
   ) : null;
 };
 

@@ -34,6 +34,7 @@ const initialState = {
   cardAside: [],
   searchResult: [],
   favorits: [],
+  orders: [],
   searchValue: "",
   clickPlus: false,
   asidePanel: false,
@@ -54,9 +55,7 @@ const shoesSlice = createSlice({
     },
 
     addAside: (state, action) => {
-      {
-        state.cardAside.push(action.payload);
-      }
+      state.cardAside.push(action.payload);
     },
 
     openAside: (state) => {
@@ -89,9 +88,7 @@ const shoesSlice = createSlice({
     },
 
     addFavorits: (state, action) => {
-      {
-        state.favorits.push(action.payload);
-      }
+      state.favorits.push(action.payload);
     },
 
     openFavorits: (state) => {
@@ -112,6 +109,9 @@ const shoesSlice = createSlice({
         ordersIsOpen: true,
       };
     },
+    addOrders: (state, action) => {
+      state.orders.push(action.payload)
+    }
   },
 });
 
@@ -126,5 +126,6 @@ export const {
   openFavorits,
   removeFavoritsShoes,
   openOrders,
+  addOrders,
 } = shoesSlice.actions;
 export default shoesSlice.reducer;
