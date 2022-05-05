@@ -1,11 +1,9 @@
 import "./favorits.css";
 
-const Favorirs = ({ title, price, image, id, favoritsRemove }) => {
-
+const Favorirs = ({title, price, image, id, favoritsRemove}) => {
   const removeFavoritsShoes = () => {
-    favoritsRemove({ id });
+    favoritsRemove({id});
   };
-
   return (
     <>
       <div className="favorits_card">

@@ -1,0 +1,16 @@
+.orders_wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.ordersIsEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.orders_container__title {
+  margin-left: 10px;
+}

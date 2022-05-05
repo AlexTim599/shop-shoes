@@ -1,18 +1,22 @@
 import "./header.css";
-import { useDispatch, useSelector } from "react-redux";
-import { openAside, openFavorits, openOrders } from "../../features/shoes/shoesSlice";
-import { Link } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {
+  openAside,
+  openFavorits,
+  openOrders,
+} from "../../features/shoes/shoesSlice";
+import {Link} from "react-router-dom";
 
 const Header = () => {
-  const shoesPrice = useSelector((state) => state.arrShoes.cardAside)
+  const shoesPrice = useSelector((state) => state.arrShoes.cardAside);
   const dispatch = useDispatch();
 
-  const totalPrice = shoesPrice.reduce((sum, price) => price.price + sum, 0)
+  const totalPrice = shoesPrice.reduce((sum, price) => price.price + sum, 0);
 
   return (
     <>
       <header>
-        <Link to='/'>
+        <Link to="/">
           <div className="header_left">
             <img className="logo" src="/img/logo.png " alt="img"></img>
             <div className=" header_info">
@@ -26,21 +30,23 @@ const Header = () => {
             <img className="header_logo" src="/img/cart.svg" alt="img"></img>
             <span>{totalPrice} руб</span>
           </li>
-          <Link to='/favorits'>
+          <Link to="/favorits">
             <li onClick={() => dispatch(openFavorits())}>
-              <img className="liked_logo" src="/img/heart.svg" alt="liked"></img>
+              <img
+                className="liked_logo"
+                src="/img/heart.svg"
+                alt="liked"
+              ></img>
             </li>
           </Link>
-          <Link to='/orders'>
+          <Link to="/orders">
             <li onClick={() => dispatch(openOrders())}>
               <img className="header_logo" src="/img/user.svg" alt="user"></img>
             </li>
           </Link>
         </ul>
       </header>
-
     </>
-
   );
 };
 

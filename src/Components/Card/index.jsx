@@ -1,50 +1,60 @@
-import { useEffect, useState } from "react";
-import ContentLoader from "react-content-loader"
-import { useSelector } from "react-redux";
+import {useEffect, useState} from "react";
+import ContentLoader from "react-content-loader";
 import "./card.css";
 
-const Card = ({ title, price, image, id, onclickPlus, onClickFavorits, onclickMinus, shoppingСart, favorits, favoritsRemove }) => {
+const Card = ({
+  title,
+  price,
+  image,
+  id,
+  onclickPlus,
+  onClickFavorits,
+  onclickMinus,
+  shoppingСart,
+  favorits,
+  favoritsRemove,
+}) => {
   const [isAdded, setAdded] = useState(false);
   const [isFavorit, setIsFavorit] = useState(false);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = () => {
-    !isAdded && onclickPlus({ title, price, image, id });
-    isAdded && onclickMinus()
-
+    !isAdded && onclickPlus({title, price, image, id});
+    isAdded && onclickMinus();
   };
 
   const favoritHandleClick = () => {
-    !isFavorit && onClickFavorits({ title, price, image, id });
-    isFavorit && favoritsRemove()
+    !isFavorit && onClickFavorits({title, price, image, id});
+    isFavorit && favoritsRemove();
   };
 
   useEffect(() => {
-    setTimeout(() => { setIsLoading(true) }, 1000)
-  }, [])
+    setTimeout(() => {
+      setIsLoading(true);
+    }, 1000);
+  }, []);
 
   useEffect(() => {
-    const cardItem = shoppingСart.filter((i) => i.id === id)
+    const cardItem = shoppingСart.filter((i) => i.id === id);
     if (cardItem.length > 0) {
-      setAdded(true)
+      setAdded(true);
     } else {
-      setAdded(false)
+      setAdded(false);
     }
-  }, [shoppingСart])
+  }, [shoppingСart, id]);
 
   useEffect(() => {
-    const favoritsItem = favorits.filter((item) => item.id === id)
+    const favoritsItem = favorits.filter((item) => item.id === id);
     if (favoritsItem.length > 0) {
-      setIsFavorit(true)
+      setIsFavorit(true);
     } else {
-      setIsFavorit(false)
+      setIsFavorit(false);
     }
-  }, [favorits])
+  }, [favorits, id]);
 
   return isLoading ? (
-
     <div className="card">
-      <div className="card_unliked" onClick={favoritHandleClick} >
+      <div className="card_unliked" onClick={favoritHandleClick}>
         <img
           src={isFavorit ? "/img/liked.svg" : "/img/unliked.svg"}
           alt="unliked"
@@ -61,32 +71,33 @@ const Card = ({ title, price, image, id, onclickPlus, onClickFavorits, onclickMi
           <b>{price}</b>
         </div>
         <button className="card_button" onClick={handleClick}>
-          <img className="card_button__img "
-            src={isAdded ? "./img/btn-checked.svg" : '/img/btn-plus.svg'}
+          <img
+            className="card_button__img "
+            src={isAdded ? "./img/btn-checked.svg" : "/img/btn-plus.svg"}
             alt="img"
           ></img>
         </button>
       </div>
-    </div >
-
-  ) :
-    <div> <ContentLoader
-
-      speed={5}
-      width={220}
-      height={240}
-      viewBox="0 0 220 240"
-      backgroundColor="#f3f3f3"
-      foregroundColor="#ecebeb"
-
-    >
-      <rect x="1" y="236" rx="8" ry="8" width="60" height="15" />
-      <rect x="91" y="165" rx="8" ry="8" width="29" height="31" />
-      <rect x="229" y="21" rx="5" ry="5" width="180" height="220" />
-      <rect x="0" y="4" rx="8" ry="8" width="120" height="145" />
-      <rect x="0" y="166" rx="8" ry="8" width="74" height="15" />
-      <rect x="0" y="199" rx="8" ry="8" width="42" height="15" />
-    </ContentLoader>  </div>
+    </div>
+  ) : (
+    <div>
+      <ContentLoader
+        speed={5}
+        width={220}
+        height={240}
+        viewBox="0 0 220 240"
+        backgroundColor="#f3f3f3"
+        foregroundColor="#ecebeb"
+      >
+        <rect x="1" y="236" rx="8" ry="8" width="60" height="15" />
+        <rect x="91" y="165" rx="8" ry="8" width="29" height="31" />
+        <rect x="229" y="21" rx="5" ry="5" width="180" height="220" />
+        <rect x="0" y="4" rx="8" ry="8" width="120" height="145" />
+        <rect x="0" y="166" rx="8" ry="8" width="74" height="15" />
+        <rect x="0" y="199" rx="8" ry="8" width="42" height="15" />
+      </ContentLoader>{" "}
+    </div>
+  );
 };
 
 export default Card;

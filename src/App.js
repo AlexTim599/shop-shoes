@@ -5,7 +5,7 @@ import Aside from "./Components/Aside";
 import Body from "./Components/Body";
 import CardContainer from "./Components/Card/contaner";
 import FavoritsContainer from "./Components/Favorits/container";
-import { Route, Routes } from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Layout from "./Pages";
 import Orders from "./Components/Orders";
 
